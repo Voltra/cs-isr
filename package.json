@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "Crazy Simple Incremental Static Regeneration",
   "main": "dist/cs-isr.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "bin": "dist",
-    "doc": "docs",
-    "lib": "src"
+    "doc": "docs"
   },
   "scripts": {
     "build": "webpack --mode production",
