@@ -1,5 +1,10 @@
 export interface CsIsrConfig {
 	/**
+	 * Human-readable name given to your application
+	 */
+	appName: string;
+
+	/**
 	 * The secret key used to authentify Webhook requests
 	 */
 	appSecretKey: string;
