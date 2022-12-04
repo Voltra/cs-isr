@@ -3,6 +3,7 @@
  */
 module.exports = {
 	serverBaseUrl: "http://localhost:3456",
+	appName: "My app",
 	appPublicId: "vmP#M6B3pwfY/n6j2h!aprh:*WbcqmB/",
 	appSecretKey: "StuD!gaMqxVHVR/gj7TqWjKkOAr%xXgR",
 };
