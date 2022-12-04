@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model App {
+    // Keys
+    id Int @id @default(autoincrement())
+
+    // Fields
+    publicId  String @unique
+    secretKey String @unique
+    name      String
+
+    // Relationships
+    regenerations Regeneration[]
+}
+
+model Regeneration {
+    // Keys
+    id    Int @id @default(autoincrement())
+    appId Int
+
+    // Fields
+    routeUri String @unique
+	createdAt	DateTime	@default(now())
+
+    // Relationships
+    app App @relation(fields: [appId], references: [id], onDelete: Cascade)
+}
