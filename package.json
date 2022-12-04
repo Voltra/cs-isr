@@ -1,0 +1,24 @@
+{
+  "name": "cs-isr",
+  "version": "0.0.1",
+  "description": "Crazy Simple Incremental Static Regeneration",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Voltra/cs-isr.git"
+  },
+  "keywords": [
+    "ssg",
+    "isr",
+    "cli"
+  ],
+  "author": "Voltra <ludwig.guerin.98@gmx.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Voltra/cs-isr/issues"
+  },
+  "homepage": "https://github.com/Voltra/cs-isr#readme"
+}
