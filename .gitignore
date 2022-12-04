@@ -5,6 +5,7 @@ prisma/*.db*
 .env
 isr.config.js
 node_modules
+docs/
 *.swp
 *.log
 .DS_Store
