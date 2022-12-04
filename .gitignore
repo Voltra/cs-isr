@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.brackets.json
+prisma/*.db*
+.env
+isr.config.js
+node_modules
+*.swp
+*.log
+.DS_Store
