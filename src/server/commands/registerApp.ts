@@ -1,16 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import fs from "fs-extra";
 import JSON5 from "json5";
+import { clientConfigSchema } from "../../shared/schema";
 
 export const registerApp = async args => {
-	//TODO: Insert into DB
-
-	//TODO: Validate and parse using zod schema
-
-	/**
-	 * @type {import("../../client/index").CsIsrConfig}
-	 */
-	const config = JSON5.parse(await fs.readFile(args.configFile));
+	const config = clientConfigSchema.parse(
+		JSON5.parse(await fs.readFile(args.configFile))
+	);
 
 	const prisma = new PrismaClient();
 
@@ -21,6 +17,7 @@ export const registerApp = async args => {
 				publicId: config.appPublicId,
 				secretKey: config.appSecretKey,
 			},
+			select: {},
 		});
 	} finally {
 		await prisma.$disconnect();

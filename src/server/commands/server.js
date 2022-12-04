@@ -1,10 +1,15 @@
-import { createApp, createRouter, toNodeListener } from "h3"
+import { createServer } from "http";
+import { createApp, createRouter, sendError, toNodeListener } from "h3"
 import { queueRegeneration } from "../endpoints/queueRegeneration";
 
 //TODO: Make it a CLI app too
 
 export const serve = args => {
-	const app = createApp();
+	const app = createApp({
+		onError(error, event) {
+			sendError(event, error);
+		},
+	});
 
 	const router = createRouter();
 
@@ -12,5 +17,7 @@ export const serve = args => {
 
 	app.use(router);
 
-	createServer(toNodeListener(app)).listen(args.port);
+	const server = createServer(toNodeListener(app)).listen(args.port);
+
+	process.once("SIGTERM", () => server.close());
 };
